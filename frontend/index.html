@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Capstone App</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 80px; }
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    #result { margin-top: 30px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h1>Capstone Cloud App</h1>
+  <button onclick="callAPI()">Test Flask API</button>
+  <div id="result"></div>
+
+  <script>
+    function callAPI() {
+      fetch("http://13.235.246.17:5000/")
+        .then(res => res.text())
+        .then(data => document.getElementById("result").innerText = data)
+        .catch(err => document.getElementById("result").innerText = "Error: " + err);
+    }
+  </script>
+</body>
+</html>
